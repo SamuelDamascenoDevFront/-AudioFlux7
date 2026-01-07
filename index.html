@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Web Player - Album Details</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2bbdee",
+                        "primary-hover": "#50caff",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101d22",
+                        "surface-dark": "#111e22",
+                        "surface-highlight": "#192d33",
+                        "border-dark": "#233f48",
+                        "text-secondary": "#92bbc9",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    boxShadow: {
+                        "neon": "0 0 15px rgba(43, 189, 238, 0.25)",
+                        "neon-hover": "0 0 25px rgba(43, 189, 238, 0.4)",
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background-dark text-white font-body overflow-hidden h-screen flex flex-col group/design-root">
+    <div class="flex flex-1 overflow-hidden">
+        <aside
+            class="w-[280px] flex-shrink-0 bg-surface-dark border-r border-border-dark flex flex-col hidden lg:flex z-20">
+            <div class="flex flex-col h-full p-6 justify-between">
+                <div class="flex flex-col gap-8">
+                    <div class="flex items-center gap-3 px-2">
+                        <div
+                            class="h-8 w-8 bg-primary rounded-full flex items-center justify-center text-background-dark">
+                            <span class="material-symbols-outlined">graphic_eq</span>
+                        </div>
+                        <h1 class="text-white text-xl font-display font-bold tracking-tight">AudioFlux</h1>
+                    </div>
+                    <nav class="flex flex-col gap-2">
+                        <a class="flex items-center gap-4 px-4 py-3 rounded-lg text-white hover:bg-surface-highlight transition-colors group"
+                            href="#">
+                            <span
+                                class="material-symbols-outlined text-text-secondary group-hover:text-white">home</span>
+                            <span class="text-sm font-medium font-display tracking-wide">Início</span>
+                        </a>
+                        <a class="flex items-center gap-4 px-4 py-3 rounded-lg text-white hover:bg-surface-highlight transition-colors group"
+                            href="#">
+                            <span
+                                class="material-symbols-outlined text-text-secondary group-hover:text-white">search</span>
+                            <span class="text-sm font-medium font-display tracking-wide">Buscar</span>
+                        </a>
+                        <a class="flex items-center gap-4 px-4 py-3 rounded-lg bg-surface-highlight border border-border-dark shadow-sm"
+                            href="#">
+                            <span class="material-symbols-outlined text-primary"
+                                style="font-variation-settings: 'FILL' 1;">library_music</span>
+                            <span class="text-sm font-medium font-display tracking-wide">Sua Biblioteca</span>
+                        </a>
+                    </nav>
+                </div>
+                <div
+                    class="p-4 rounded-xl bg-gradient-to-br from-surface-highlight to-background-dark border border-border-dark/50">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="material-symbols-outlined text-primary">download</span>
+                        <span class="text-sm font-bold font-display">App Desktop</span>
+                    </div>
+                    <p class="text-xs text-text-secondary leading-relaxed">Baixe o aplicativo para a melhor experiência
+                        em alta fidelidade.</p>
+                </div>
+            </div>
+        </aside>
+
+        <main class="flex-1 flex flex-col min-w-0 bg-background-dark relative">
+            <header
+                class="h-16 flex items-center justify-between px-8 border-b border-border-dark bg-surface-dark/95 backdrop-blur-md sticky top-0 z-30">
+                <div class="flex items-center gap-4 flex-1 max-w-xl">
+                    <button
+                        class="w-8 h-8 rounded-full bg-surface-highlight flex items-center justify-center text-white hover:bg-border-dark transition-colors">
+                        <span class="material-symbols-outlined text-sm">arrow_back_ios_new</span>
+                    </button>
+                    <div class="relative flex-1 ml-4 group">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <span
+                                class="material-symbols-outlined text-text-secondary group-focus-within:text-white transition-colors text-[20px]">search</span>
+                        </div>
+                        <input
+                            class="block w-full pl-10 pr-3 py-2 border border-transparent rounded-full bg-surface-highlight text-white placeholder-text-secondary focus:outline-none sm:text-sm font-display transition-all"
+                            placeholder="O que você quer ouvir?" type="text" />
+                    </div>
+                </div>
+                <div class="flex items-center gap-6">
+                    <div
+                        class="w-9 h-9 rounded-full bg-gradient-to-tr from-primary to-purple-600 p-[2px] cursor-pointer hover:scale-105 transition-transform">
+                        <div class="w-full h-full rounded-full bg-surface-dark bg-cover bg-center border-2 border-surface-dark"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBNX6IvoMhy4XlIGyD00LIEXJ_V4ltTcnMVGE4Q6R4_nlP5pajdS8k8kB50uhPY60WEc6q4LtyRePsdm3h6LyvvLMTYlwF2fRvGKLkA15ndZg055RSQ4w9xggUD1PG84g5mMrw1owZXIJuNdN5YiHUjQLMUWqmH6pAu0b1DxB-JFEqiIx4hHKNkBf5mYm6qVYwd0gtb2-I9ZO_f9CwSDQrq5eaoL_JtpJCIh-sq1Odz44iQ9bYHJAvIJb_yqfg6oMsQj-afFtx1moM');">
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="flex-1 overflow-y-auto relative z-10 technical-grid">
+                <div
+                    class="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-[#1c3a44] via-[#15262c] to-background-dark pointer-events-none z-[-1]">
+                </div>
+                <div class="p-8 pb-32 max-w-[1400px] mx-auto flex flex-col gap-8">
+                    <div class="flex flex-col md:flex-row gap-8 items-end pt-8">
+                        <div class="relative group shrink-0">
+                            <div
+                                class="w-52 h-52 md:w-64 md:h-64 shadow-2xl rounded-md overflow-hidden border border-white/10 relative z-10">
+                                <img alt="Album Art" class="w-full h-full object-cover"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6eNS6Vl7E5BTctzvkV8EP-CAky5aFVCDVtQTo_hbO9lESe4hHPI2pAOOlkh4Fedpi9RkQ4sVPI3the2jyV_EP3oFnk63LbQDqF8ypA3Ph9m0qNoMRarB5MFm1HhWcOxurRK8-4xigSg40kyN8Jrhk-D4b3od4I0i-Ur-CJnZhoi3hz9JoMncxkZPbYRx_wgpNtLneCMu_b3EgCkjFSHalK3LY9TaHeDbVKWQ0huVfT4CYlZ1fsw50bmnyiiEIv1kzNhwr-XZpJTg" />
+                            </div>
+                            <div
+                                class="absolute -inset-4 bg-primary/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2 pb-2 flex-1">
+                            <span
+                                class="text-xs font-bold font-display tracking-[0.2em] uppercase text-primary mb-1">Álbum</span>
+                            <h1
+                                class="text-4xl md:text-6xl lg:text-7xl font-bold font-display text-white tracking-tight leading-none mb-4">
+                                Midnight Frequencies</h1>
+                            <div class="flex items-center gap-2 text-sm md:text-base font-medium text-text-secondary">
+                                <a class="text-white hover:underline font-bold" href="#">The Cyberpunk Collective</a>
+                                <span class="w-1 h-1 rounded-full bg-text-secondary"></span>
+                                <span>2023</span>
+                                <span class="w-1 h-1 rounded-full bg-text-secondary"></span>
+                                <span class="text-white">12 músicas, 42 min</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full">
+                        <div
+                            class="grid grid-cols-[auto_1fr_auto_auto] gap-4 px-4 py-3 border-b border-white/10 text-xs font-bold uppercase text-text-secondary font-display sticky top-16 bg-background-dark/95 backdrop-blur z-20">
+                            <div class="w-8 text-center">#</div>
+                            <div>Título</div>
+                            <div class="hidden md:block text-right pr-8">Reproduções</div>
+                            <div class="flex justify-end pr-2"><span
+                                    class="material-symbols-outlined text-[18px]">schedule</span></div>
+                        </div>
+
+                        <div
+                            class="group grid grid-cols-[auto_1fr_auto_auto] gap-4 px-4 py-3 rounded-md hover:bg-white/5 items-center transition-colors">
+                            <div class="w-8 flex justify-center text-primary relative">
+                                <span class="group-hover:hidden">1</span>
+                                <span
+                                    class="material-symbols-outlined hidden group-hover:block text-[20px]">play_arrow</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-white font-medium">Neon Highway</span>
+                                <span class="text-sm text-text-secondary">The Cyberpunk Collective</span>
+                            </div>
+                            <div class="hidden md:block text-right pr-8 text-sm text-text-secondary">1,204,555</div>
+                            <div class="flex justify-end pr-2 text-sm text-text-secondary">3:45</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer
+        class="h-24 bg-surface-dark border-t border-primary/20 flex items-center justify-between px-4 z-40 fixed bottom-0 w-full">
+        <div class="flex items-center gap-4 w-[30%] min-w-[200px]">
+            <img class="w-14 h-14 rounded"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVJcVRYn-A428WhigTv1esWtJPA1CGIGdNlbsisOTaYgcfGhtEZ69th37iKNsnKGhsJn16OzXJV3I2MhEkTidySsTzip9U9RPUcQhMSYGGDaqOFVptUimP25KvC_sEgjwxOXW8fZdZgKGd1Uf13nZMqxKwtFzvX4dVFDmobBVtkkbMpgDhnOb_FAEYL4sPQmHNGVTxnvoDhYC1upj0NeD6NWJ_-pUgeg5iKwY7oVYuxPydEUqB0F0lSJGjJ28_z9lfHv9zXfjOpQQ"
+                alt="Thumb">
+            <div class="flex flex-col">
+                <span class="text-white text-sm font-bold">Neon Highway</span>
+                <span class="text-xs text-text-secondary">The Cyberpunk Collective</span>
+            </div>
+        </div>
+
+        <div class="flex flex-col items-center max-w-[40%] w-full gap-2">
+            <div class="flex items-center gap-6">
+                <span class="material-symbols-outlined text-text-secondary cursor-pointer">shuffle</span>
+                <span class="material-symbols-outlined text-white text-[32px] cursor-pointer">pause_circle</span>
+                <span class="material-symbols-outlined text-text-secondary cursor-pointer">repeat</span>
+            </div>
+            <div class="w-full flex items-center gap-2 text-xs text-text-secondary">
+                <span>0:45</span>
+                <div class="flex-1 h-1 bg-surface-highlight rounded-full overflow-hidden">
+                    <div class="h-full w-[20%] bg-primary"></div>
+                </div>
+                <span>3:45</span>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-end gap-3 w-[30%] min-w-[200px]">
+            <span class="material-symbols-outlined text-text-secondary">volume_up</span>
+            <div class="w-24 h-1 bg-surface-highlight rounded-full overflow-hidden">
+                <div class="h-full w-[80%] bg-text-secondary"></div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
